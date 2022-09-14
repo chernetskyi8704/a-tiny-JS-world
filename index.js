@@ -42,7 +42,7 @@ class Inhabitant {
               this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join(this.addBoldAndRedSemicolon(";")) +
+        .join(this.addBoldAndRedSemicolon("; ")) +
       this.addBoldAndRedSemicolon(";")
     );
   }
@@ -65,7 +65,7 @@ class Human extends Inhabitant {
             } ${this[data].bold()}`
         )
         .join(this.addBoldAndRedSemicolon(";")) +
-      this.addBoldAndRedSemicolon(";") +
+      this.addBoldAndRedSemicolon("; ") +
       this.saying()
     );
   }
@@ -102,7 +102,7 @@ class Dog extends Animal {
               this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join(this.addBoldAndRedSemicolon(";")) +
+        .join(this.addBoldAndRedSemicolon("; ")) +
       this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
@@ -126,7 +126,7 @@ class Cat extends Animal {
               this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join(this.addBoldAndRedSemicolon(";")) +
+        .join(this.addBoldAndRedSemicolon("; ")) +
       this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
@@ -150,7 +150,7 @@ class Hamster extends Animal {
               this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join(this.addBoldAndRedSemicolon(";")) +
+        .join(this.addBoldAndRedSemicolon("; ")) +
       this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
@@ -172,7 +172,7 @@ class Snake extends Animal {
               this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join(this.addBoldAndRedSemicolon(";")) +
+        .join(this.addBoldAndRedSemicolon("; ")) +
       this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
