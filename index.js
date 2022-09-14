@@ -6,13 +6,30 @@ class Inhabitant {
     this.Saying = Saying;
   }
 
+  addBoldAndRedSemicolon(string) {
+    return string.bold().fontcolor("red");
+  }
+
+  addRedBoldCollon(string) {
+    return string.bold().fontcolor("red");
+  }
+
+  makeStringRedAndBold(string) {
+    return string.bold().fontcolor("Red");
+  }
+
+  makeStringBold(string) {
+    return string.bold();
+  }
+
   saying() {
     // return ` Saying: ${this.Saying}`;
     return ["Saying"].map(
       (data) =>
         ` ${
-          data.bold().fontcolor("red") + ":".bold().fontcolor("red")
-        } ${this.Saying.bold()}` + ";".bold().fontcolor("red")
+          this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
+        } ${this.makeStringBold(this.Saying)}` +
+        this.addBoldAndRedSemicolon(";")
     );
   }
 
@@ -22,10 +39,11 @@ class Inhabitant {
         .map(
           (data) =>
             `${
-              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+              this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join("; ".bold().fontcolor("red")) + ";".bold().fontcolor("red")
+        .join(this.addBoldAndRedSemicolon(";")) +
+      this.addBoldAndRedSemicolon(";")
     );
   }
 }
@@ -43,11 +61,11 @@ class Human extends Inhabitant {
         .map(
           (data) =>
             `${
-              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+              this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join("; ") +
-      ";".bold().fontcolor("red") +
+        .join(this.addBoldAndRedSemicolon(";")) +
+      this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
   }
@@ -81,11 +99,11 @@ class Dog extends Animal {
         .map(
           (data) =>
             `${
-              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+              this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join("; ") +
-      ";".bold().fontcolor("red") +
+        .join(this.addBoldAndRedSemicolon(";")) +
+      this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
   }
@@ -105,11 +123,11 @@ class Cat extends Animal {
         .map(
           (data) =>
             `${
-              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+              this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join("; ") +
-      ";".bold().fontcolor("red") +
+        .join(this.addBoldAndRedSemicolon(";")) +
+      this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
   }
@@ -129,11 +147,11 @@ class Hamster extends Animal {
         .map(
           (data) =>
             `${
-              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+              this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join("; ") +
-      ";".bold().fontcolor("red") +
+        .join(this.addBoldAndRedSemicolon(";")) +
+      this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
   }
@@ -151,11 +169,11 @@ class Snake extends Animal {
         .map(
           (data) =>
             `${
-              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+              this.makeStringRedAndBold(data) + this.addRedBoldCollon(":")
             } ${this[data].bold()}`
         )
-        .join("; ") +
-      ";".bold().fontcolor("red") +
+        .join(this.addBoldAndRedSemicolon(";")) +
+      this.addBoldAndRedSemicolon(";") +
       this.saying()
     );
   }
