@@ -1,62 +1,175 @@
-/* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
-   Complete the below for code reviewers' convenience:
-
-   Code repository: _put repo URL here_
-   Web app: _put project's github pages URL here_
-   */
-
-// ======== OBJECTS DEFINITIONS ========
 class Inhabitant {
-  constructor(species, name, gender, saying) {
-    this.species = species;
-    this.name = name;
-    this.gender = gender;
-    this.saying = saying;
+  constructor(Species, Name, Gender, Saying) {
+    this.Species = Species;
+    this.Name = Name;
+    this.Gender = Gender;
+    this.Saying = Saying;
+  }
+
+  saying() {
+    // return ` Saying: ${this.Saying}`;
+    return ["Saying"].map(
+      (data) =>
+        ` ${
+          data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+        } ${this.Saying.bold()}` + ";".bold().fontcolor("red")
+    );
   }
 
   displayData() {
-    return ["species", "name", "gender", "saying"]
-      .map((data) => this[data])
-      .join("; ");
+    return (
+      ["Species", "Name", "Gender"]
+        .map(
+          (data) =>
+            `${
+              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+            } ${this[data].bold()}`
+        )
+        .join("; ".bold().fontcolor("red")) + ";".bold().fontcolor("red")
+    );
   }
 }
-
-class Person extends Inhabitant {
-  constructor(species, name, gender, saying, hands, legs) {
-    super(species, name, gender, saying);
-    this.hands = hands;
-    this.legs = legs;
+class Human extends Inhabitant {
+  constructor(Species, Name, Gender, Saying) {
+    super(Species, Name, Gender, Saying);
+    this.Hands = "2";
+    this.Legs = "2";
   }
 
   displayData() {
-    return `${super.displayData()}; ${this.hands}; ${this.legs};`;
+    return (
+      `${super.displayData()} ` +
+      ["Hands", "Legs"]
+        .map(
+          (data) =>
+            `${
+              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+            } ${this[data].bold()}`
+        )
+        .join("; ") +
+      ";".bold().fontcolor("red") +
+      this.saying()
+    );
   }
 }
 
-class Animal extends Inhabitant {
-  constructor(species, name, gender, saying, paws, tail) {
-    super(species, name, gender, saying);
-    this.paws = paws;
-    this.tail = tail;
+class Animal extends Inhabitant {}
+
+class Man extends Human {
+  constructor(Name, Gender, Saying) {
+    super("Man🤵", Name, Gender, Saying);
+  }
+}
+
+class Woman extends Human {
+  constructor(Name, Gender, Saying) {
+    super("Woman👩", Name, Gender, Saying);
+  }
+}
+
+class Dog extends Animal {
+  constructor(Name, Gender, Saying) {
+    super("Dog🐶", Name, Gender, Saying);
+    this.Paws = "4";
+    this.Tail = "1";
   }
 
   displayData() {
-    return `${super.displayData()}; ${this.paws}; ${this.tail};`;
+    return (
+      `${super.displayData()} ` +
+      ["Paws", "Tail"]
+        .map(
+          (data) =>
+            `${
+              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+            } ${this[data].bold()}`
+        )
+        .join("; ") +
+      ";".bold().fontcolor("red") +
+      this.saying()
+    );
   }
 }
 
-class Man extends Person {}
-class Woman extends Person {}
-class Dog extends Animal {}
-class Cat extends Animal {}
+class Cat extends Animal {
+  constructor(Name, Gender, Saying) {
+    super("Cat🐱", Name, Gender, Saying);
+    this.Paws = "4";
+    this.Tail = "1";
+  }
 
-const man = new Man("Man", "Dimitrij", "male", "Nice to meet you!", 2, 2);
-const woman = new Woman("Woman", "Kate", "male", "Have a good day!", 2, 2);
-const dog = new Dog("Dog", "Molly", "female", "WOOF-WOOF!", 4, 1);
-const cat = new Cat("Cat", "Whiskey", "female", "Meow!", 4, 1);
+  displayData() {
+    return (
+      `${super.displayData()} ` +
+      ["Paws", "Tail"]
+        .map(
+          (data) =>
+            `${
+              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+            } ${this[data].bold()}`
+        )
+        .join("; ") +
+      ";".bold().fontcolor("red") +
+      this.saying()
+    );
+  }
+}
+
+class Hamster extends Animal {
+  constructor(Name, Gender, Saying) {
+    super("Hamster🐹", Name, Gender, Saying);
+    this.Paws = "4";
+    this.Tail = "1";
+  }
+
+  displayData() {
+    return (
+      `${super.displayData()} ` +
+      ["Paws", "Tail"]
+        .map(
+          (data) =>
+            `${
+              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+            } ${this[data].bold()}`
+        )
+        .join("; ") +
+      ";".bold().fontcolor("red") +
+      this.saying()
+    );
+  }
+}
+
+class Snake extends Animal {
+  constructor(Name, Gender, Saying) {
+    super("Snake🐍", Name, Gender, Saying);
+    this.Tail = "1";
+  }
+  displayData() {
+    return (
+      `${super.displayData()} ` +
+      ["Tail"]
+        .map(
+          (data) =>
+            `${
+              data.bold().fontcolor("red") + ":".bold().fontcolor("red")
+            } ${this[data].bold()}`
+        )
+        .join("; ") +
+      ";".bold().fontcolor("red") +
+      this.saying()
+    );
+  }
+}
+
+const man = new Man("Dimitrij", "Male", "Nice to meet you👋");
+const woman = new Woman("Kate", "Female", "Have a good day🤗");
+const dog = new Dog("Molly", "Female", "Bring me more food🍗 WOOF-woof!");
+const cat = new Cat("Whiskey", "Male", "Meeow... I'm tired of Molly😑");
+const hamster = new Hamster("Zhuzha", "Female", "Here is so cold🤧");
+const snake = new Snake("Nagini", "Female", "Ssssssss");
 
 // ======== OUTPUT ========
-const allInhabitants = [man, woman, dog, cat];
+const allInhabitants = [man, woman, dog, cat, hamster, snake];
 
 allInhabitants.map((inhabitan) => {
   print(inhabitan.displayData());
