@@ -23,7 +23,6 @@ class Inhabitant {
   }
 
   saying() {
-    // return ` Saying: ${this.Saying}`;
     return ["Saying"].map(
       (data) =>
         ` ${
@@ -186,7 +185,6 @@ const cat = new Cat("Whiskey", "Male", "Meeow... I'm tired of Molly😑");
 const hamster = new Hamster("Zhuzha", "Female", "Here is so cold🤧");
 const snake = new Snake("Nagini", "Female", "Ssssssss");
 
-// ======== OUTPUT ========
 const allInhabitants = [man, woman, dog, cat, hamster, snake];
 
 allInhabitants.map((inhabitan) => {
